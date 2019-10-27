@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	<script type="text/javascript"> 
+	
+	$(function(){
+		
+		$('.btn1').click(function(){
+			$.ajax({
+				url:"https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.chosun.com%2Fsite%2Fdata%2Frss%2Frss.xml&api_key=aftxu2dvu8ohfvz8chovp8uymgmwhykfvjqosnfy",
+				data:{
+					url: "http://www.chosun.com/site/data/rss/rss.xml",
+					api_key: "aftxu2dvu8ohfvz8chovp8uymgmwhykfvjqosnfy",
+					count: 10
+				},
+				success: function(result){
+/* 					alert('연결 성공!')
+					alert(result) */
+					itemValues = result.items;
+					/* 값들을 배열로 가지고 온다. */
+					for(i = 0; i < itemValues.length; i++) {
+						title = itemValues[i].title
+						link = itemValues[i].link
+						thumbnail = itemValues[i].thumbnail
+						$('div').append('<img src=' + thumbnail + '>')
+						$('div').append('- ' + 
+										'<a href=' + link + '>' +
+						title + '</a><br>')
+					}
+				}
+			});
+		});
+
+	});
+
+	</script>
+</head>
+
+<body>
+	<input type="button" class="btn1" value="신문 기사 퍼오기">
+	<div></div>
+</body>
+
+</html>

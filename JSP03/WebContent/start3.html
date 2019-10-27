@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript"	src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('.btn').click(function() {
+			idValue = $('.id').val();
+			console.log('입력한 id는 >>' + idValue);
+			
+			if(idValue == 'root') {
+				location.href = 'server2.jsp?id=' + idValue
+			}else{
+				$('div').text('id를 다시 입력해주시기 바랍니다.')
+				
+			}
+		});
+	});
+	
+</script>
+</head>
+<body>
+아이디 <input class="id" type="text" name="id"><br>
+<!-- 패스워드<input type="text"><br> -->
+<input class="btn" type="button" value="입력값 체크">
+<br>
+<div style="color:red;"> </div>
+</body>
+</html>

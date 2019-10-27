@@ -1,0 +1,5 @@
+@charset "EUC-KR";
+body{
+	color : blue; /* ;를 반드시 넣어야 한다. */
+}
+
